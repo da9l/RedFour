@@ -1,5 +1,5 @@
 defmodule Converter do
-  defp rounded_to_nearest_tenth(val) do
+  def to_nearest_tenth(val) do
     Float.ceil val, 1
   end
 

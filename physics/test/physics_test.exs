@@ -10,6 +10,4 @@ defmodule PhysicsTest do
     %{mass: 4.0e22, radius: 6.12e6}
       |> Physics.Rocketry.escape_velocity
   end
-    assert 1 + 1 == 2
-  end
 end
