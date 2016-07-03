@@ -23,5 +23,13 @@ defmodule PhysicsTest do
     assert ev == 1.0
   end
 
+  test "Converter one works" do
+    ev = Converter.to_light_seconds({:miles, 1000}, precision: 5)
+    assert ev == 0.00537
+  end
+
+  # test "ConverterTwo works with default values" do
+  #   Converter.to_light_seconds({:miles, 1000}) |> IO.inspect 
+  # end
 
 end

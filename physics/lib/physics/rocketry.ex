@@ -21,7 +21,8 @@ defmodule Physics.Rocketry do
   end
 
 def orbital_acceleration(height) do
-  orbital_speed(height) |> squared / orbital_radius(height)
+  (orbital_speed(height) |> squared) / 
+    orbital_radius(height)
 end
 
 defp orbital_radius(height) do
