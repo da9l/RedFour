@@ -16,13 +16,26 @@ defmodule Physics.Rocketry do
   end
 
   def orbital_speed(height) do
-    newtons_
+    newtons_gravitational_constant * earth.mass / orbital_radius(height)
+      |> square_root
   end
 
-  defp orbital_radius(height) do
-    earth.radius + (height |> to_meters)
-  end
-#1:00:43
+def orbital_acceleration(height) do
+  orbital_speed(height) |> squared / orbital_radius(height)
+end
+
+defp orbital_radius(height) do
+  earth.radius + (height |> to_meters)
+end
+
+def orbital_term(height) do
+  4 * (:math.pi |> squared) * (orbital_radius(height) |> cubed) / 
+    (newtons_gravitational_constant * earth.mass) 
+    |> square_root
+    |> second_to_hours
+end
+
+# 1:00:43
   defp calculate_escape(%{mass: mass, radius: radius}) do
     2 * newtons_gravitational_constant * mass / radius
       |> square_root
